@@ -2,42 +2,40 @@ import requests
 import time
 import datetime
 import xml.etree.ElementTree as ET
+from refresh_files import *
+from open_files import *
 
+debug = True
 url = "http://194.208.52.114:8080/axis2/services/DataCollection?wsdl"
 headers = {'Content-type':'text/html'}
-
-search = 'Project_EWA'
 replacement = 'Project_EWA_' + unicode(datetime.datetime.now())
-print replacement
-with open("Arlberghaus_Strom.xml") as f:
-        Kunde1_Strom = f.read()
-      
-with open("Arlberghaus_Strom_poll.xml") as g:
-        Kunde1_Strom_poll = g.read()
+get_data = True
 
-with open("Arlberghaus_Wasser.xml") as h:
-        Kunde1_Wasser = h.read()
-       
-with open("Arlberghaus_Wasser_poll.xml") as i:
-        Kunde1_Wasser_poll = i.read()
-
-#itree = ET.parse("Arlberghaus_Strom.xml")
-#root = tree.getroot()
-
-#for begin_time in root.iter("amis:request"):
-#	begin_time.text = replacement
-#tree = ET.ElementTree(root)
-#with open("Arlberghaus.xml", "w") as f:
-#	tree.write(f)
-
-ARL_Strom = requests.post(url, data=Kunde1_Strom, headers=headers)
-ARL_Wasser = requests.post(url, data=Kunde1_Wasser, headers=headers)
-print ARL_Strom.content            
-print ARL_Wasser.content           
+refresh_Arlberghaus()
+Kunde1 = open_Arlberghaus()
+if debug:
+	print Kunde1[0]
+	print Kunde1[1]
+	print Kunde1[2]
+	print Kunde1[3]
                                    
-while(True):                        
-        time.sleep(10)
-        ARL_Strom_poll = requests.post(url, data=Kunde1_Strom_poll, headers=headers)
-        ARL_Wasser_poll = requests.post(url, data=Kunde1_Wasser_poll, headers=headers)
-        print ARL_Strom_poll.content 
-	print ARL_Wasser_poll.content
+while(True):
+	ARL_Strom = requests.post(url, data=Kunde1[0], headers=headers)
+	ARL_Wasser = requests.post(url, data=Kunde1[1], headers=headers)
+	if debug:
+		print ARL_Strom.content
+		print ARL_Wasser.content
+	while(get_data):                   
+	       	time.sleep(10)
+      		ARL_Strom_poll = requests.post(url, data=Kunde1[2], headers=headers)
+     		ARL_Wasser_poll = requests.post(url, data=Kunde1[3], headers=headers)
+		if debug:
+    			print ARL_Strom_poll.content 
+			print ARL_Wasser_poll.content
+		
+		with open("Arlberghaus_Response_Strom.xml", "wb") as d:
+			d.write(ARL_Strom_poll.text)
+			d.close()
+		with open("Arlberghaus_Response_Wasser.xml", "wb") as f:
+			f.write(ARL_Wasser_poll.text)
+			f.close()

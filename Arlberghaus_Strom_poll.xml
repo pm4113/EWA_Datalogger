@@ -1,12 +1,12 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:amis="amis:com.siemens.ptd.amis">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <amis:CompoundPollGetTariff>
-         <amis:std>
-            <amis:request>Project_EWA_14</amis:request>
-            <!--Optional:-->
-            <amis:blockSize>0</amis:blockSize>
-         </amis:std>
-      </amis:CompoundPollGetTariff>
-   </soapenv:Body>
-</soapenv:Envelope>
+<ns0:Envelope xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="amis:com.siemens.ptd.amis">
+   <ns0:Header />
+   <ns0:Body>
+      <ns1:CompoundPollGetTariff>
+         <ns1:std>
+            <ns1:request>Project_EWA_2017-07-19 13:41:08.365712</ns1:request>
+            
+            <ns1:blockSize>0</ns1:blockSize>
+         </ns1:std>
+      </ns1:CompoundPollGetTariff>
+   </ns0:Body>
+</ns0:Envelope>
