@@ -1,0 +1,28 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:amis="amis:com.siemens.ptd.amis">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <amis:CompoundCallGetTariff>
+         <amis:std>
+            <amis:request>Project_EWA_15</amis:request>
+            <!--Optional:-->
+            <amis:comment>no</amis:comment>
+            <!--Optional:-->
+            <amis:blockSize>0</amis:blockSize>
+            <amis:activationTime>2017-07-17T04:00:00+02:00</amis:activationTime>
+            <!--Optional:-->
+            <amis:async>
+               <amis:deliveryTime>2017-07-18T22:00:00+02:00</amis:deliveryTime>
+               <!--Optional:-->
+               <amis:responseUrl>ResponseEWA</amis:responseUrl>
+            </amis:async>
+            <!--You have a CHOICE of the next 4 items at this level-->
+            <amis:device>DME513793087007</amis:device>
+         </amis:std>
+         <amis:tariffType>actual</amis:tariffType>
+         <amis:allObis>true</amis:allObis>
+      </amis:CompoundCallGetTariff>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+
+

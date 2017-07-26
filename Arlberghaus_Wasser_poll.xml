@@ -1,0 +1,12 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:amis="amis:com.siemens.ptd.amis">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <amis:CompoundPollGetTariff>
+         <amis:std>
+            <amis:request>Project_EWA_15</amis:request>
+            <!--Optional:-->
+            <amis:blockSize>0</amis:blockSize>
+         </amis:std>
+      </amis:CompoundPollGetTariff>
+   </soapenv:Body>
+</soapenv:Envelope>
