@@ -19,13 +19,13 @@ get_response = True
 response_strom = 0
 response_wasser = 0
 error_handling_timeout = 0
-then = datetime.datetime.now() + timedelta(minutes = 48)
+then = datetime.datetime.now() + timedelta(minutes = 60)
 
 while(True):
 	now = datetime.datetime.now()
 #	time.sleep(2800)
 	if now > then:
-		then = datetime.datetime.now() + timedelta(minutes = 48)
+		then = datetime.datetime.now() + timedelta(minutes = 60)
 		refresh_Arlberghaus()
 		Kunde1_request = open_Arlberghaus()
 #		if debug:
