@@ -23,7 +23,6 @@ then = datetime.datetime.now() + timedelta(minutes = 60)
 
 while(True):
 	now = datetime.datetime.now()
-#	time.sleep(2800)
 	if now > then:
 		then = datetime.datetime.now() + timedelta(minutes = 60)
 		refresh_Arlberghaus()
