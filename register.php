@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(isset($_SESSION["username"])) {
+?>
+
 <html>
 </head>
 	<title>Mein Bereich - Registrieren</title>
@@ -65,13 +70,8 @@ if(isset($_GET["page"])) {
 			
 			$usereintrag = mysql_query($usereintrag);
 			
-			if($eintrag == true){
+			if($eintrag and $usereintrag == true){
 				echo "Vielen Dank. Du hast dich erfolgreich registriert... <a href=\"index.php\">Jetzt anmelden</a>";
-			} else {
-				echo "Fehler im System. Bitte versuche es später noch einmal...";
-			}
-			if($usereintrag == true){
-				echo "Vielen Dank. Es hat funktioniert...";
 			} else {
 				echo "Fehler im System. Bitte versuche es später noch einmal...";
 			}
@@ -82,5 +82,16 @@ if(isset($_GET["page"])) {
 	}
 }
 ?>
+<form method="post" action="logout.php">
+	<input type="submit" value="Ausloggen" />
+</form>
 </body>
 </html>
+
+<?php
+} else {
+?>
+Bitte erst einloggen, <a href="index.php">hier</a>.
+<?php
+}
+?>
