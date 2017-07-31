@@ -82,6 +82,9 @@ if(isset($_GET["page"])) {
 	}
 }
 ?>
+<form method="post" action="show_user.php">
+	<input type="submit" value="Alle User anzeigen" />
+</form>
 <form method="post" action="logout.php">
 	<input type="submit" value="Ausloggen" />
 </form>
