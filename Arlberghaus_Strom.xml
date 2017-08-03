@@ -3,20 +3,20 @@
    <ns0:Body>
       <ns1:CompoundCallGetTariff>
          <ns1:std>
-            <ns1:request>Project_EWA_2017-07-31 08:24:25.091226</ns1:request>
+            <ns1:request>Project_EWA_2017-08-02 14:48:34.563963</ns1:request>
             
             <ns1:comment>no</ns1:comment>
             
             <ns1:blockSize>0</ns1:blockSize>
-            <ns1:activationTime>2017-07-30T20:24:25+02:00</ns1:activationTime>
+            <ns1:activationTime>2017-08-02T02:48:34+02:00</ns1:activationTime>
             
             <ns1:async>
-               <ns1:deliveryTime>2017-07-31T20:24:25+02:00</ns1:deliveryTime>
+               <ns1:deliveryTime>2017-08-03T02:48:34+02:00</ns1:deliveryTime>
                
                <ns1:responseUrl>ResponseEWA</ns1:responseUrl>
             </ns1:async>
             
-            <ns1:device>100000148</ns1:device>
+            <ns1:device>100000150</ns1:device>
          </ns1:std>
          <ns1:tariffType>actual</ns1:tariffType>
          <ns1:allObis>true</ns1:allObis>
