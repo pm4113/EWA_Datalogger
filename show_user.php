@@ -5,7 +5,16 @@ if(isset($_SESSION["username"])) {
 
 <html>
 <head>
-<title>Daten aus einer Datenbank abrufen</title>
+<style>
+table {
+	border-collapse: collapse;
+}
+table,th,td{
+	border: 1px solid black;
+}
+</style>
+	<title>Daten aus einer Datenbank abrufen</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 <?php
@@ -24,26 +33,25 @@ $rs = mysql_query($strSQL);
 // Schleifendurchlauf durch $rs
 // Jede Zeile wird zu einem Array ($row), mit mysql_fetch_array
 
-echo "<table>";
-echo "<tr>";
-echo "<h3>";
-                echo "<td>User</td>";
-                echo "<td>Stromzähler</td>";
-                echo "<td>Wasserzähler</td>";
-echo "</h3>";
-echo "</tr>";
-
-
-while($row = mysql_fetch_array($rs)) {
-	// Schreibe den Wert der Spalte Vorname (der jetzt im Array $row ist
+echo '<div id="register_1">';
+	echo "<table>";
 	echo "<tr>";
-	echo "<td>".$row['user']."</td>";
-	echo "<td>".$row['power']."</td>";
-	echo "<td>".$row['water']. "</td>";
+                echo "<th><h3>User</h3></th>";
+                echo "<th><h3>Stromzähler</h3></th>";
+                echo "<th><h3>Wasserzähler</h3></th>";
 	echo "</tr>";
-	}
-echo "<table>";
 
+
+	while($row = mysql_fetch_array($rs)) {
+		// Schreibe den Wert der Spalte Vorname (der jetzt im Array $row ist
+		echo "<tr>";
+		echo "<td>".$row['user']."</td>";
+		echo "<td>".$row['power']."</td>";
+		echo "<td>".$row['water']. "</td>";
+		echo "</tr>";
+		}
+	echo "<table>";
+//echo '</div>'
 // Schließt die Datenbankverbindung
 mysql_close();
 ?>

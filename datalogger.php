@@ -270,30 +270,13 @@ if(isset($_SESSION["username"])) {
                 </div>  
 
 	</div>	
-	<?php
-#		if ($no_water_data == 1){
-#			echo "Keine Wasserdaten vorhanden! <br /> \n";
-#			echo $row['waterflow'];
-#		} else {
-#			echo "Wasserdaten vorhanden! <br /> \n";
-#			echo $row['waterflow'];
-#		}
-#		
-#		if ($no_power_data == 1){
-#			echo "Keine Stromdaten vorhanden! <br /> \n";
-#			echo $row['power'];
-#		} else {
-#			echo "Stromdaten vorhanden! <br /> \n ";
-#			echo $row['power'];
-#		}
-#		
-	?>		
-	<form method="post" action="logout.php"> 
-                <input type="submit" value="Ausloggen" />
-        </form>
+
+		<form method="post" action="logout.php">	
+                	<input type="submit" value=" Abmelden" />		
+        	</form>
 	
 	<div id="footer">
-		Markus Probst
+		BSc Markus Probst
 	</div>
 
    </body>
@@ -302,7 +285,7 @@ if(isset($_SESSION["username"])) {
 <?php
 } else {
 ?>
-Bitte erst einloggen, <a href="index.php">hier</a>.
+Bitte erst einloggen..., <a href="index.php">hier</a>.
 <?php
 }
 ?>

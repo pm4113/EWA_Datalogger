@@ -39,7 +39,7 @@ $verhalten = 2;
 
 <html>
 <head>
-	<titel>Login</titel>
+	<link rel="stylesheet" type="text/css" href="style.css" />
 	<?php
 	if($verhalten  == 1 and $user == "admin"){
 	?>
@@ -53,20 +53,28 @@ $verhalten = 2;
 	?>
 </head>
 <body>
+	<div id="register_1">
 	<?php
 	if($verhalten == 0) {
 	?>
-	Bitte logge dich ein:<br />
+	Bitte loggen Sie sich ein:<br />
+	<table>
 	<form method="post" action="index.php?page=log">
-		User:<input type="text" name="user" /><br/>
-		Passwort:<input type="password" name="passwort" /><br/>
-		<input type="submit" value="Einloggen" />
+		<tr>
+		<td align="right">User:</td>		<td><input type="text" name="user" /><br/> </td>
+		</tr>
+		<tr>
+		<td align="right">Passwort:</td>	<td><input type="password" name="passwort" /><br/> </td>
+		</tr>
+		<tr>
+		<td><input type="submit" value="Einloggen" /> </td>
+		</tr>
 	</form>
 	<?php
 	}
 	if($verhalten == 1) {
 	?>
-	Du hast dich richtig eingeloggt und wirst nun weitergeleitet!
+	Sie haben sich richtig eingeloggt und werden nun weitergeletet...
 	<?php
 	}
 	if($verhalten == 2) {
@@ -75,5 +83,6 @@ $verhalten = 2;
 	<?php
 	}
 	?>
+	</div>
 </body>
 </html>

@@ -24,7 +24,7 @@ error_handling_timeout = 0
 row_count = 0
 request_handler = []
 index_count = 0
-then = datetime.datetime.now() + timedelta(minutes = 3000)
+then = datetime.datetime.now() + timedelta(minutes = 10)
 
 while(True):
 	now = datetime.datetime.now()
@@ -32,7 +32,7 @@ while(True):
 	row_count = 0
 	request_handler = []
 	if now > then:
-		then = datetime.datetime.now() + timedelta(minutes = 3000)
+		then = datetime.datetime.now() + timedelta(minutes = 60)
 		while (end_of_user):
 			print row_count
 			feedback = refresh_user(row_count)

@@ -57,6 +57,10 @@ input[type=checkbox] {
 	padding: 10px;
 }
 
+#abstand {
+	text-align: center;
+}
+
 #footer {
 	margin-top: 25px;
 	margin-bottom: 10px;
