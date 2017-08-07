@@ -74,6 +74,28 @@ table {
 	  </div>
 
 
+	  <div id="passwort">	
+		<!-- renew Passwort -->
+		<?php
+		if(!isset($_GET["page"])) {
+		?>
+		<h3 align="center">Benutzer löschen</h3>
+		<table>
+			<form action="register.php?page=4" method="post">
+			<tr>
+			<td align="right">Username:</td>		<td><input type="text" name="user" /><br /> </td>
+			</tr>
+			<tr>
+			<td><input type="submit" value="Senden" /></td>
+			</tr>
+			</form>
+		</table>
+		<?php
+		}
+		?>
+	  </div>
+
+
 		<?php
 		if(isset($_GET["page"])) {
 			if($_GET["page"] == "2") {
@@ -177,6 +199,47 @@ table {
 			}
 		}
 		?>
+
+
+		<?php
+		if(isset($_GET["page"])) {
+			if($_GET["page"] == "4") {
+			$user = strtolower($_POST["user"]);
+
+			$verbindung = mysql_connect("localhost", "ewa_datalogger", "ewaprojekt2017")
+			or die ("Fehler im System!");
+			mysql_select_db("userhandling")
+			or die ("Verbindung zur Datenbank war nicht möglich...");	
+
+			$control = 0;
+			$abfrage = "SELECT user FROM tbl_userlogin WHERE user = '$user'";
+			$ergebnis = mysql_query($abfrage);
+			while($row = mysql_fetch_object($ergebnis))
+			{
+				$control++;
+			}
+			if($control == 0) {
+				echo "Username nicht vorhanden. Bitte wähle einen anderen!! <a href=\"register.php\">zurück</a>";
+			} else {
+				$loeschen_1 = "DELETE FROM tbl_userlogin WHERE user = '$user'";
+			
+				$loeschen_1 = mysql_query($loeschen_1);	
+				mysql_select_db("datastorage")
+				or die ("Verbindung zur Datenbank war nicht möglich...");
+				$loeschen_2 =  "DROP TABLE $user";
+				$loeschen_2 = mysql_query($loeschen_2);
+				if(($loeschen_1 == true) and ($loeschen_2 == true)){
+					echo "Sie haben einen Benutzer gelöscht... <a href=\"register.php\">zurück</a>";
+				} else {
+					echo "Fehler im System. Bitte versuche es später noch einmal...";
+				}
+				mysql_close($verbindung);
+				}	
+			}
+				
+		}
+		?>
+
 
 		  <div id="option">
 		  <table>

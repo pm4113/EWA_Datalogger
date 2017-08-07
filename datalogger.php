@@ -23,7 +23,7 @@ if(isset($_SESSION["username"])) {
 			or die ("Fehler im System");
 			mysql_select_db("datastorage")
 			or die ("Verbindung zur Datenbank nicht möglich");
-                        $query = "SELECT * FROM (SELECT * FROM ".$_SESSION["username"]." ORDER BY date DESC LIMIT 1000) sub ORDER BY date ASC";
+                        $query = "SELECT * FROM (SELECT * FROM ".$_SESSION["username"]." ORDER BY date DESC LIMIT 100) sub ORDER BY date ASC";
 
 			$results = mysql_query($query);
 			$rows = array();
@@ -66,7 +66,7 @@ if(isset($_SESSION["username"])) {
 			yaxes:    	[{
 					ticks: 8,
 					position: "right",
-					axisLabel: "Water Flow Rate [l3/h]",
+					axisLabel: "Water Flow Rate [l/h]",
 					axisLabelUseCanvas: true,
                 			axisLabelFontSizePixels: 12,
                 			axisLabelFontFamily: "Verdana, Arial, Helvetica, Tahoma, sans-serif",
@@ -86,7 +86,7 @@ if(isset($_SESSION["username"])) {
 
 		//plot the graph
 		var data = [
-			{data: datarecords_1 , label: "Water Flow Rate [l3/h]" , color: 6, yaxis:2},
+			{data: datarecords_1 , label: "Water Flow Rate [l/h]" , color: 6, yaxis:2},
 			{data: datarecords_2 , label: "Power [W/h]" , color: 2}
 			];
 		$.plot("#placeholder", data, options);
@@ -202,7 +202,7 @@ if(isset($_SESSION["username"])) {
 			yaxis:    	{
 					ticks: 8,
 					position: "left",
-					axisLabel: "Water Flow Rate [l3/h]",
+					axisLabel: "Water Flow Rate [l/h]",
 					axisLabelUseCanvas: true,
                 			axisLabelFontSizePixels: 12,
                 			axisLabelFontFamily: "Verdana, Arial, Helvetica, Tahoma, sans-serif",
@@ -215,7 +215,7 @@ if(isset($_SESSION["username"])) {
 
 		//plot the graph
 		var data = [
-			{data: datarecords_1 , label: "Water Flow Rate [l3/h]" , color: 6}	
+			{data: datarecords_1 , label: "Water Flow Rate [l/h]" , color: 6}	
 			];
 		$.plot("#placeholder", data, options);
 
@@ -250,7 +250,7 @@ if(isset($_SESSION["username"])) {
 	});
 
 	</script>
-	<meta http-equiv="refresh" content = "100">
+	<meta http-equiv="refresh" content = "1000">
    </head>
    <body>
 
