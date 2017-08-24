@@ -147,7 +147,7 @@ while(True):
 
 				while(insert_into_db):
 					error_handling_timeout += 1                
-					time.sleep(10)
+					time.sleep(1)
 		
 					if (feedback[2] and feedback[3]):           	
   		   				Kunde_strom_poll = requests.post(url, data=Kunde_request[2], headers=headers)
@@ -204,7 +204,7 @@ while(True):
 					if Kunde_response_strom > 0:
 						response_strom = Kunde_response_strom
 					if feedback[2] and feedback[3]:
-						if (response_strom > 0 and response_wasser > 0) or error_handling_timeout == 10:	
+						if (response_strom > 0 and response_wasser > 0) or error_handling_timeout == 100:	
 							writeIntoDB(feedback, response_strom, response_wasser)
 							if debug:
 								print "--------------------------"

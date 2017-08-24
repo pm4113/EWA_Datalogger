@@ -270,13 +270,66 @@ if(isset($_SESSION["username"])) {
                 </div>  
 
 	</div>	
-
+	<div>
 		<form method="post" action="logout.php">	
                 	<input type="submit" value=" Abmelden" />		
         	</form>
-	
+	</div>
+	<div>
+		<?php
+		if(!isset($_GET["page"])) {
+		?>
+			<form action="datalogger.php?page=2" method="post">
+			<input type="submit" value="Export" />
+			</form>
+		<?php
+		}
+		?>
+	</div>
+	<?php
+		function download(){
+	?>
+			<meta http-equiv="refresh" content="1; URL=/data/download.php" />
+	<?php     
+		}
+	?>
+	<?php
+	if(isset($_GET["page"])) {
+		if($_GET["page"] == "2") {		
+			$abfrage = "SELECT date, power, waterflow FROM ".$_SESSION["username"]."";			
+			$rows = mysql_query($abfrage);
+			if($rows  == true){	
+    				$output = fopen('data.csv', 'w');
+		
+				if (($no_water_data == 0) and ($no_power_data == 0)){
+    					fputcsv($output, array('Date', 'Power[W/h]', 'Waterflow[l/h]'));
+				}
+
+				if (($no_water_data == 0) and ($no_power_data == 1)){
+    					fputcsv($output, array('Date', '', 'Waterflow[l/h]'));
+				}
+
+				if (($no_water_data == 1) and ($no_power_data == 0)){
+    					fputcsv($output, array('Date', 'Power[W/h]'));
+				}
+
+    				while ($row = mysql_fetch_assoc($rows)) {
+      					fputcsv($output, $row);
+    					}
+    				fclose($output);
+				download();
+
+#				echo "Sie haben erfolgreich ihre Daten exportiert... <a href=\"/var/mein.csv\">Herunterladen</a>";
+				exit;	
+			} else {
+				echo "Fehler im System. Bitte versuche es später noch einmal...";
+				}
+		}
+	}
+	?>
+
 	<div id="footer">
-		BSc Markus Probst
+		EWA St. Anton am Arlberg
 	</div>
 
    </body>

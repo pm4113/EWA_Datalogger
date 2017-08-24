@@ -5,12 +5,18 @@ if(isset($_SESSION["username"])) {
 
 <html>
 </head>
+	<!-- Required meta tags -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	<!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <style>
 table {
 	border:1px solid black;
 }
 </style>
-	<title>Mein Bereich - Registrieren</title>
+	<title>Admin Bereich</title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -19,7 +25,7 @@ table {
 		<?php
 		if(!isset($_GET["page"])) {
 		?>
-		<h3 align="center">Registrieren</h3>
+		<h4>Registrieren</h4>
 		<table>
 			<form action="register.php?page=2" method="post">
 			<tr>
@@ -42,6 +48,7 @@ table {
 			</tr>
 			</form>
 		</table>
+		<br />
 		<?php
 		}
 		?>
@@ -51,7 +58,7 @@ table {
 		<?php
 		if(!isset($_GET["page"])) {
 		?>
-		<h3 align="center">Passwort ändern</h3>
+		<h4>Passwort ändern</h4>
 		<table>
 			<form action="register.php?page=3" method="post">
 			<tr>
@@ -68,6 +75,7 @@ table {
 			</tr>
 			</form>
 		</table>
+		<br />
 		<?php
 		}
 		?>
@@ -79,7 +87,7 @@ table {
 		<?php
 		if(!isset($_GET["page"])) {
 		?>
-		<h3 align="center">Benutzer löschen</h3>
+		<h4>Benutzer löschen</h4>
 		<table>
 			<form action="register.php?page=4" method="post">
 			<tr>
@@ -90,6 +98,7 @@ table {
 			</tr>
 			</form>
 		</table>
+		<br />
 		<?php
 		}
 		?>
@@ -254,6 +263,11 @@ table {
 		  </table>
 		  </div>
 	</div>
+	<!-- Optional JavaScript -->
+    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>
 </html>
 
